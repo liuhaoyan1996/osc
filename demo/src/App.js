@@ -24,6 +24,10 @@ import Activemq from './Activemq';
 import Pulsar from './Pulsar';
 import Billing from './Billing';
 import Monitoring from './Monitoring';
+import HuaWeiCloudServices from './services/serviceCreate/HuaWeiCloudServices';
+import ProjectBilling from './billing/ProjectBilling';
+import IntergrationEndPoints from "./integrationendpoints/IntegrationEndpoints";
+
 
 function SideMenu(props) {
   const [collapsed, setCollapsed] = useState(false);
@@ -32,11 +36,17 @@ function SideMenu(props) {
     var serviceItems = menuItems.filter(i => i.key !== 'catalog');
     menuItems = [ 
 			{ id: 'services', label: 'Services', icon: <AppstoreOutlined />,  children: [] },
-			{ id: 'monitoring', label: <Link to="/monitoring">Monitoring</Link>, icon: <MonitorOutlined/> }
+			{ id: 'monitoring', label: <Link to="/monitoring">Monitoring</Link>, icon: <MonitorOutlined/> },
+      { id: 'huaweicloudservices', label: <Link to="/huaweicloudservices">HuaWeiCloudServices</Link>, icon: <MonitorOutlined/> },
+      { id: 'projectbilling', label: <Link to="/projectbilling">ProjectBilling</Link>, icon: <MonitorOutlined/> },
+      { id: 'projectbilling', label: <Link to="/intergrationendpoints">Intergration EndPoints</Link>, icon: <MonitorOutlined/> }
 		];
     menuItems[0].children = serviceItems;
   } else {
     menuItems = menuItems.filter(i => i.key === 'catalog');
+    // menuItems = [
+    //   {id: 'myself',label: <Link to="/myself">MySelf</Link>,icon: <MonitorOutlined/>}
+    // ]
   }
   if (props.user === 'otc') {
     return (
@@ -103,6 +113,15 @@ function Content(props) {
 				<Route path="/monitoring" key="monitoring">
 					<Monitoring vms={props.vms} rds={props.rds} kafka={props.kafka} kubernetes={props.kubernetes} rancher={props.rancher} cassandra={props.cassandra} activemq={props.activemq} pulsar={props.pulsar}  />
 				</Route>
+        <Route path="/huaweicloudservices" key="huaweicloudservices">
+          <HuaWeiCloudServices vms={props.vms} rds={props.rds}  />
+        </Route>
+        <Route path="/projectbilling" key="projectbilling">
+          <ProjectBilling vms={props.vms} rds={props.rds}  />
+        </Route>
+        <Route path="/intergrationendpoints" key="intergrationendpoints">
+          <IntergrationEndPoints vms={props.vms} rds={props.rds} items={props.items}  />
+        </Route>
 			</Switch>
       </div>
     </Layout.Content>
@@ -207,6 +226,7 @@ export default function App() {
     userMenu = (
       <Menu items={[
         { key: 'signout', label: <Button type='primary' onClick={ () => setUser(null) }>Sign Out</Button> }
+
       ]} />
     );
   }

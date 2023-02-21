@@ -278,7 +278,7 @@ function Catalog(props) {
   if (props.user === 'csp') {
     return (
       <>
-      <Breadcrumb><Breadcrumb.Item href="/"><HomeOutlined /></Breadcrumb.Item><Breadcrumb.Item href="/catalog"><AppstoreOutlined /><span>Catalog</span></Breadcrumb.Item></Breadcrumb>
+      <Breadcrumb><Breadcrumb.Item href="/"><eHomeOutlind /></Breadcrumb.Item><Breadcrumb.Item href="/catalog"><AppstoreOutlined /><span>Catalog</span></Breadcrumb.Item></Breadcrumb>
       <h2>Services Catalog <small>(powered by Open Services Cloud)</small></h2>
       <Divider orientation="left">Deploy</Divider>
       <Row>

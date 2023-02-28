@@ -19,11 +19,7 @@ function Services() {
         <>
           <Breadcrumb>
             <Breadcrumb.Item><Link to={'/'}><HomeOutlined /><span>Home</span></Link></Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <UserOutlined />
-              <span>Application List</span>
-            </Breadcrumb.Item>
-            <Breadcrumb.Item>Application</Breadcrumb.Item>
+            <Breadcrumb.Item><UserOutlined /><Link to={'/services'}><span>Services</span></Link></Breadcrumb.Item>
           </Breadcrumb>
           <h1>services</h1>
           <TabServicesChild/>

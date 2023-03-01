@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
-import {Breadcrumb, Button, Space, Tabs} from 'antd';
-import TabServiceChild from './TabServicesChild';
+import React ,{useState}from 'react';
+import TabServicesChild from "./TabServicesChild";
+import { Breadcrumb ,Button ,Space} from 'antd';
 import {Link} from "react-router-dom";
 import {BankOutlined, HomeOutlined, InfoCircleTwoTone} from "@ant-design/icons";
 import '../../../styles/services/Services.css';
 import SelectService from "./SelectSerivce";
 import {Aws,Google,Upcloud} from './SvgObject';
-
 function Services(props: any) {
   const providerList = [
     {
@@ -137,9 +136,9 @@ function Services(props: any) {
           </div>
         </Space>
         <h1>3.0 Select Service Cloud Region</h1>
-        <TabServiceChild items={items}/>
+        <TabServicesChild items={items}/>
         <h1>4.0 Select Service Plan</h1>
-        <TabServiceChild items={term}/>
+        <TabServicesChild items={term}/>
         <h1>5. Provide Service Name</h1>
         <div>
           <div className="xpanse-provide-service-name">
@@ -157,5 +156,4 @@ function Services(props: any) {
       </>
   )
 }
-
 export default Services;
